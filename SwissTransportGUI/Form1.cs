@@ -44,23 +44,20 @@ namespace SwissTransportGUI
     {
       string textSave = comboBox.Text;
       
-      for (int i = comboBox.Items.Count; i > 0; i--)
-      {
-        comboBox.Items.RemoveAt(i);
-      }
-      
-    
-      comboBox.Text = textSave;
-        var stations = transport.GetStations(comboBox.Text);
+     comboBox.Items.Clear();
+     comboBox.SelectionStart = comboBox.Text.Length + 1;
+
+
+
+      var stations = transport.GetStations(comboBox.Text);
       foreach (Station station in stations.StationList)
       {
         comboBox.Items.Add(station.Name);
        
       }
-     
     }
 
-    private void FromKomboBox_KeyUp(object sender, KeyEventArgs e)
+    private void FromComboBox_KeyUp(object sender, KeyEventArgs e)
     {
       if (char.IsLetterOrDigit((char) e.KeyCode))
       {
@@ -68,15 +65,42 @@ namespace SwissTransportGUI
       }
     
     }
+    private void ToComboBoxKeyUp(object sender, KeyEventArgs e)
+    {
+      if (char.IsLetterOrDigit((char)e.KeyCode))
+      {
+        AutoSuggestions(toComboBox);
+      }
+    }
 
     private void fromComboBox_Enter(object sender, EventArgs e)
     {
-    fromComboBox.DroppedDown = true;
+      fromComboBox.DroppedDown = true;
     }
 
     private void fromComboBox_Leave(object sender, EventArgs e)
     {
-    fromComboBox.DroppedDown = false;
+      fromComboBox.DroppedDown = false;
+    }
+
+    private void ToComboBox_Enter(object sender, EventArgs e)
+    {
+      fromComboBox.DroppedDown = true;
+    }
+
+    private void ToComboBox_Leave(object sender, EventArgs e)
+    {
+      fromComboBox.DroppedDown = false;
+    }
+
+    private void FromComboBox_Enter(object sender, EventArgs e)
+    {
+      fromComboBox.DroppedDown = true;
+    }
+
+    private void FromComboBox_Leave(object sender, EventArgs e)
+    {
+      fromComboBox.DroppedDown = false;
     }
   }
 }

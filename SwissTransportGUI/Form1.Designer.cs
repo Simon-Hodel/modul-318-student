@@ -202,9 +202,9 @@
       this.fromComboBox.Name = "fromComboBox";
       this.fromComboBox.Size = new System.Drawing.Size(163, 28);
       this.fromComboBox.TabIndex = 8;
-      this.fromComboBox.Enter += new System.EventHandler(this.fromComboBox_Enter);
-      this.fromComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FromKomboBox_KeyUp);
-      this.fromComboBox.Leave += new System.EventHandler(this.fromComboBox_Leave);
+      this.fromComboBox.Enter += new System.EventHandler(this.FromComboBox_Enter);
+      this.fromComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FromComboBox_KeyUp);
+      this.fromComboBox.Leave += new System.EventHandler(this.FromComboBox_Leave);
       // 
       // toComboBox
       // 
@@ -213,6 +213,9 @@
       this.toComboBox.Name = "toComboBox";
       this.toComboBox.Size = new System.Drawing.Size(181, 28);
       this.toComboBox.TabIndex = 9;
+      this.toComboBox.Enter += new System.EventHandler(this.ToComboBox_Enter);
+      this.toComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToComboBoxKeyUp);
+      this.toComboBox.Leave += new System.EventHandler(this.ToComboBox_Leave);
       // 
       // Form1
       // 
@@ -227,7 +230,7 @@
       this.Controls.Add(this.dateTimePicker1);
       this.Controls.Add(this.selectionGroup);
       this.Name = "Form1";
-      this.Text = "Form1";
+      this.Text = "d";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.selectionGroup.ResumeLayout(false);
       this.selectionGroup.PerformLayout();
