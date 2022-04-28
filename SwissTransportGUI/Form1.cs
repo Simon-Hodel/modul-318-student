@@ -1,8 +1,5 @@
 using SwissTransport.Core;
 using SwissTransport.Models;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 
 namespace SwissTransportGUI
 {
@@ -15,6 +12,7 @@ namespace SwissTransportGUI
     }
 
     ITransport transport = new Transport();
+    Autofill autofill = new Autofill();
 
 
     private void Form1_Load(object sender, EventArgs e)
@@ -31,7 +29,13 @@ namespace SwissTransportGUI
 
     private void TestButton_Click(object sender, EventArgs e)
     {
-      var connections = transport.GetConnections(fromComboBox.Text, toComboBox.Text, datePicker.Value, timePicker.Value);
+     bool isArrival = false;
+     if (isArrivalTimeCheckBox.Checked)
+     {
+       isArrival = true;
+
+     }
+      var connections = transport.GetConnections(fromComboBox.Text, toComboBox.Text, datePicker.Value, timePicker.Value, isArrival);
 
       foreach (Connection connection in connections.ConnectionList)
       {
@@ -43,29 +47,22 @@ namespace SwissTransportGUI
     private void AutoSuggestions(ComboBox comboBox)
     {
 
-      comboBox.Items.Clear();
-      comboBox.SelectionStart = comboBox.Text.Length + 1;
-      var stations = transport.GetStations(comboBox.Text);
-      foreach (Station station in stations.StationList)
-      {
-        comboBox.Items.Add(station.Name);
-
-      }
+     
     }
 
     private void FromComboBox_KeyUp(object sender, KeyEventArgs e)
     {
-      if (char.IsLetterOrDigit((char)e.KeyCode))
+      if ((char.IsLetterOrDigit((char)e.KeyCode)) && fromComboBox.Text != null)
       {
-        AutoSuggestions(fromComboBox);
+        autofill.AutoFillMe(fromComboBox);
       }
 
     }
     private void ToComboBoxKeyUp(object sender, KeyEventArgs e)
     {
-      if (char.IsLetterOrDigit((char)e.KeyCode))
+      if ((char.IsLetterOrDigit((char)e.KeyCode))&& toComboBox.Text != null )
       {
-        AutoSuggestions(toComboBox);
+        autofill.AutoFillMe(toComboBox);
       }
     }
 

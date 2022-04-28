@@ -44,10 +44,10 @@
       this.PlatformArrivalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
       this.searchButton = new System.Windows.Forms.Button();
-      this.testBox = new System.Windows.Forms.TextBox();
       this.fromComboBox = new System.Windows.Forms.ComboBox();
       this.toComboBox = new System.Windows.Forms.ComboBox();
       this.timePicker = new System.Windows.Forms.DateTimePicker();
+      this.isArrivalTimeCheckBox = new System.Windows.Forms.CheckBox();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
@@ -103,6 +103,8 @@
       // 
       // datePicker
       // 
+      this.datePicker.CustomFormat = "dd.MM.yyyy";
+      this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
       this.datePicker.Location = new System.Drawing.Point(3, 87);
       this.datePicker.Name = "datePicker";
       this.datePicker.Size = new System.Drawing.Size(162, 27);
@@ -115,6 +117,7 @@
       // 
       // verbindungenDataGridView
       // 
+      this.verbindungenDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
       this.verbindungenDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
       this.verbindungenDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.verbindungenDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -124,11 +127,12 @@
             this.ToTrainstationColumn,
             this.ArrivalTimeColumn,
             this.PlatformArrivalColumn});
-      this.verbindungenDataGridView.Location = new System.Drawing.Point(2, 126);
+      this.verbindungenDataGridView.Location = new System.Drawing.Point(2, 127);
       this.verbindungenDataGridView.Name = "verbindungenDataGridView";
+      this.verbindungenDataGridView.RowHeadersVisible = false;
       this.verbindungenDataGridView.RowHeadersWidth = 51;
       this.verbindungenDataGridView.RowTemplate.Height = 29;
-      this.verbindungenDataGridView.Size = new System.Drawing.Size(786, 188);
+      this.verbindungenDataGridView.Size = new System.Drawing.Size(804, 311);
       this.verbindungenDataGridView.TabIndex = 5;
       // 
       // DepartTimeColumn
@@ -137,7 +141,6 @@
       this.DepartTimeColumn.MinimumWidth = 6;
       this.DepartTimeColumn.Name = "DepartTimeColumn";
       this.DepartTimeColumn.ReadOnly = true;
-      this.DepartTimeColumn.Width = 125;
       // 
       // PlatformColumn
       // 
@@ -145,7 +148,6 @@
       this.PlatformColumn.MinimumWidth = 6;
       this.PlatformColumn.Name = "PlatformColumn";
       this.PlatformColumn.ReadOnly = true;
-      this.PlatformColumn.Width = 125;
       // 
       // FromTrainstationColumn
       // 
@@ -153,7 +155,6 @@
       this.FromTrainstationColumn.MinimumWidth = 6;
       this.FromTrainstationColumn.Name = "FromTrainstationColumn";
       this.FromTrainstationColumn.ReadOnly = true;
-      this.FromTrainstationColumn.Width = 125;
       // 
       // ToTrainstationColumn
       // 
@@ -161,7 +162,6 @@
       this.ToTrainstationColumn.MinimumWidth = 6;
       this.ToTrainstationColumn.Name = "ToTrainstationColumn";
       this.ToTrainstationColumn.ReadOnly = true;
-      this.ToTrainstationColumn.Width = 125;
       // 
       // ArrivalTimeColumn
       // 
@@ -169,7 +169,6 @@
       this.ArrivalTimeColumn.MinimumWidth = 6;
       this.ArrivalTimeColumn.Name = "ArrivalTimeColumn";
       this.ArrivalTimeColumn.ReadOnly = true;
-      this.ArrivalTimeColumn.Width = 125;
       // 
       // PlatformArrivalColumn
       // 
@@ -177,7 +176,6 @@
       this.PlatformArrivalColumn.MinimumWidth = 6;
       this.PlatformArrivalColumn.Name = "PlatformArrivalColumn";
       this.PlatformArrivalColumn.ReadOnly = true;
-      this.PlatformArrivalColumn.Width = 125;
       // 
       // searchButton
       // 
@@ -188,13 +186,6 @@
       this.searchButton.Text = "Verbindungen suchen";
       this.searchButton.UseVisualStyleBackColor = true;
       this.searchButton.Click += new System.EventHandler(this.TestButton_Click);
-      // 
-      // testBox
-      // 
-      this.testBox.Location = new System.Drawing.Point(617, 23);
-      this.testBox.Name = "testBox";
-      this.testBox.Size = new System.Drawing.Size(125, 27);
-      this.testBox.TabIndex = 7;
       // 
       // fromComboBox
       // 
@@ -229,20 +220,34 @@
       this.timePicker.Size = new System.Drawing.Size(181, 27);
       this.timePicker.TabIndex = 10;
       // 
+      // isArrivalTimeCheckBox
+      // 
+      this.isArrivalTimeCheckBox.AutoSize = true;
+      this.isArrivalTimeCheckBox.Location = new System.Drawing.Point(362, 97);
+      this.isArrivalTimeCheckBox.Name = "isArrivalTimeCheckBox";
+      this.isArrivalTimeCheckBox.Size = new System.Drawing.Size(119, 24);
+      this.isArrivalTimeCheckBox.TabIndex = 11;
+      this.isArrivalTimeCheckBox.Text = "Ankunftszeit?";
+      this.isArrivalTimeCheckBox.UseVisualStyleBackColor = true;
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
+      this.ClientSize = new System.Drawing.Size(809, 450);
+      this.Controls.Add(this.isArrivalTimeCheckBox);
       this.Controls.Add(this.timePicker);
       this.Controls.Add(this.toComboBox);
       this.Controls.Add(this.fromComboBox);
-      this.Controls.Add(this.testBox);
       this.Controls.Add(this.searchButton);
       this.Controls.Add(this.verbindungenDataGridView);
       this.Controls.Add(this.datePicker);
       this.Controls.Add(this.selectionGroup);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
       this.Name = "Form1";
+      this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "d";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.selectionGroup.ResumeLayout(false);
@@ -272,9 +277,9 @@
     private DataGridViewTextBoxColumn PlatformArrivalColumn;
     private BindingSource bindingSource1;
     private Button searchButton;
-    private TextBox testBox;
     private ComboBox fromComboBox;
     private ComboBox toComboBox;
     private DateTimePicker timePicker;
+    private CheckBox isArrivalTimeCheckBox;
   }
 }
