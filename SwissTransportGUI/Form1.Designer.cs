@@ -33,8 +33,6 @@
       this.selectionGroup = new System.Windows.Forms.GroupBox();
       this.karteRButton = new System.Windows.Forms.RadioButton();
       this.abfahrtstafelRButton = new System.Windows.Forms.RadioButton();
-      this.fromTextBox = new System.Windows.Forms.TextBox();
-      this.toTextBox = new System.Windows.Forms.TextBox();
       this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
       this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.verbindungenDataGridView = new System.Windows.Forms.DataGridView();
@@ -45,7 +43,10 @@
       this.ArrivalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.PlatformArrivalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-      this.TestButton = new System.Windows.Forms.Button();
+      this.searchButton = new System.Windows.Forms.Button();
+      this.testBox = new System.Windows.Forms.TextBox();
+      this.fromComboBox = new System.Windows.Forms.ComboBox();
+      this.toComboBox = new System.Windows.Forms.ComboBox();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
@@ -98,22 +99,6 @@
       this.abfahrtstafelRButton.TabIndex = 1;
       this.abfahrtstafelRButton.Text = "Abfahrtstafel";
       this.abfahrtstafelRButton.UseVisualStyleBackColor = true;
-      // 
-      // fromTextBox
-      // 
-      this.fromTextBox.Location = new System.Drawing.Point(3, 54);
-      this.fromTextBox.Name = "fromTextBox";
-      this.fromTextBox.Size = new System.Drawing.Size(162, 27);
-      this.fromTextBox.TabIndex = 2;
-      this.fromTextBox.Text = "From...";
-      // 
-      // toTextBox
-      // 
-      this.toTextBox.Location = new System.Drawing.Point(171, 54);
-      this.toTextBox.Name = "toTextBox";
-      this.toTextBox.Size = new System.Drawing.Size(181, 27);
-      this.toTextBox.TabIndex = 3;
-      this.toTextBox.Text = "To...";
       // 
       // dateTimePicker1
       // 
@@ -192,26 +177,54 @@
       this.PlatformArrivalColumn.ReadOnly = true;
       this.PlatformArrivalColumn.Width = 125;
       // 
-      // TestButton
+      // searchButton
       // 
-      this.TestButton.Location = new System.Drawing.Point(444, 42);
-      this.TestButton.Name = "TestButton";
-      this.TestButton.Size = new System.Drawing.Size(94, 29);
-      this.TestButton.TabIndex = 6;
-      this.TestButton.Text = "Test";
-      this.TestButton.UseVisualStyleBackColor = true;
-      this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+      this.searchButton.Location = new System.Drawing.Point(358, 40);
+      this.searchButton.Name = "searchButton";
+      this.searchButton.Size = new System.Drawing.Size(187, 55);
+      this.searchButton.TabIndex = 6;
+      this.searchButton.Text = "Verbindungen suchen";
+      this.searchButton.UseVisualStyleBackColor = true;
+      this.searchButton.Click += new System.EventHandler(this.TestButton_Click);
+      // 
+      // testBox
+      // 
+      this.testBox.Location = new System.Drawing.Point(617, 23);
+      this.testBox.Name = "testBox";
+      this.testBox.Size = new System.Drawing.Size(125, 27);
+      this.testBox.TabIndex = 7;
+      // 
+      // fromComboBox
+      // 
+      this.fromComboBox.AllowDrop = true;
+      this.fromComboBox.FormattingEnabled = true;
+      this.fromComboBox.Location = new System.Drawing.Point(2, 52);
+      this.fromComboBox.Name = "fromComboBox";
+      this.fromComboBox.Size = new System.Drawing.Size(163, 28);
+      this.fromComboBox.TabIndex = 8;
+      this.fromComboBox.Enter += new System.EventHandler(this.fromComboBox_Enter);
+      this.fromComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FromKomboBox_KeyUp);
+      this.fromComboBox.Leave += new System.EventHandler(this.fromComboBox_Leave);
+      // 
+      // toComboBox
+      // 
+      this.toComboBox.FormattingEnabled = true;
+      this.toComboBox.Location = new System.Drawing.Point(171, 52);
+      this.toComboBox.Name = "toComboBox";
+      this.toComboBox.Size = new System.Drawing.Size(181, 28);
+      this.toComboBox.TabIndex = 9;
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Controls.Add(this.TestButton);
+      this.Controls.Add(this.toComboBox);
+      this.Controls.Add(this.fromComboBox);
+      this.Controls.Add(this.testBox);
+      this.Controls.Add(this.searchButton);
       this.Controls.Add(this.verbindungenDataGridView);
       this.Controls.Add(this.dateTimePicker1);
-      this.Controls.Add(this.toTextBox);
-      this.Controls.Add(this.fromTextBox);
       this.Controls.Add(this.selectionGroup);
       this.Name = "Form1";
       this.Text = "Form1";
@@ -232,8 +245,6 @@
     private GroupBox selectionGroup;
     private RadioButton karteRButton;
     private RadioButton abfahrtstafelRButton;
-    private TextBox fromTextBox;
-    private TextBox toTextBox;
     private DateTimePicker dateTimePicker1;
     private BindingSource stationBindingSource;
     private DataGridView verbindungenDataGridView;
@@ -244,6 +255,9 @@
     private DataGridViewTextBoxColumn ArrivalTimeColumn;
     private DataGridViewTextBoxColumn PlatformArrivalColumn;
     private BindingSource bindingSource1;
-    private Button TestButton;
+    private Button searchButton;
+    private TextBox testBox;
+    private ComboBox fromComboBox;
+    private ComboBox toComboBox;
   }
 }
