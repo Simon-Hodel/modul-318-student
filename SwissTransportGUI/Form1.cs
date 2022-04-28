@@ -20,7 +20,7 @@ namespace SwissTransportGUI
     private void Form1_Load(object sender, EventArgs e)
     {
 
-    
+
     }
 
     private void VerbindungenRButton_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace SwissTransportGUI
 
     private void TestButton_Click(object sender, EventArgs e)
     {
-      var connections = transport.GetConnections(fromComboBox.Text, toComboBox.Text);
+      var connections = transport.GetConnections(fromComboBox.Text, toComboBox.Text, datePicker.Value, timePicker.Value);
 
       foreach (Connection connection in connections.ConnectionList)
       {
@@ -42,28 +42,24 @@ namespace SwissTransportGUI
 
     private void AutoSuggestions(ComboBox comboBox)
     {
-      string textSave = comboBox.Text;
-      
-     comboBox.Items.Clear();
-     comboBox.SelectionStart = comboBox.Text.Length + 1;
 
-
-
+      comboBox.Items.Clear();
+      comboBox.SelectionStart = comboBox.Text.Length + 1;
       var stations = transport.GetStations(comboBox.Text);
       foreach (Station station in stations.StationList)
       {
         comboBox.Items.Add(station.Name);
-       
+
       }
     }
 
     private void FromComboBox_KeyUp(object sender, KeyEventArgs e)
     {
-      if (char.IsLetterOrDigit((char) e.KeyCode))
+      if (char.IsLetterOrDigit((char)e.KeyCode))
       {
         AutoSuggestions(fromComboBox);
       }
-    
+
     }
     private void ToComboBoxKeyUp(object sender, KeyEventArgs e)
     {
@@ -73,24 +69,14 @@ namespace SwissTransportGUI
       }
     }
 
-    private void fromComboBox_Enter(object sender, EventArgs e)
-    {
-      fromComboBox.DroppedDown = true;
-    }
-
-    private void fromComboBox_Leave(object sender, EventArgs e)
-    {
-      fromComboBox.DroppedDown = false;
-    }
-
     private void ToComboBox_Enter(object sender, EventArgs e)
     {
-      fromComboBox.DroppedDown = true;
+      toComboBox.DroppedDown = true;
     }
 
     private void ToComboBox_Leave(object sender, EventArgs e)
     {
-      fromComboBox.DroppedDown = false;
+      toComboBox.DroppedDown = false;
     }
 
     private void FromComboBox_Enter(object sender, EventArgs e)

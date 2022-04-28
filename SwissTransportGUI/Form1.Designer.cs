@@ -33,7 +33,7 @@
       this.selectionGroup = new System.Windows.Forms.GroupBox();
       this.karteRButton = new System.Windows.Forms.RadioButton();
       this.abfahrtstafelRButton = new System.Windows.Forms.RadioButton();
-      this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+      this.datePicker = new System.Windows.Forms.DateTimePicker();
       this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.verbindungenDataGridView = new System.Windows.Forms.DataGridView();
       this.DepartTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +47,7 @@
       this.testBox = new System.Windows.Forms.TextBox();
       this.fromComboBox = new System.Windows.Forms.ComboBox();
       this.toComboBox = new System.Windows.Forms.ComboBox();
+      this.timePicker = new System.Windows.Forms.DateTimePicker();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
@@ -100,12 +101,13 @@
       this.abfahrtstafelRButton.Text = "Abfahrtstafel";
       this.abfahrtstafelRButton.UseVisualStyleBackColor = true;
       // 
-      // dateTimePicker1
+      // datePicker
       // 
-      this.dateTimePicker1.Location = new System.Drawing.Point(3, 87);
-      this.dateTimePicker1.Name = "dateTimePicker1";
-      this.dateTimePicker1.Size = new System.Drawing.Size(349, 27);
-      this.dateTimePicker1.TabIndex = 4;
+      this.datePicker.Location = new System.Drawing.Point(3, 87);
+      this.datePicker.Name = "datePicker";
+      this.datePicker.Size = new System.Drawing.Size(162, 27);
+      this.datePicker.TabIndex = 4;
+      this.datePicker.Value = new System.DateTime(2022, 4, 28, 0, 0, 0, 0);
       // 
       // stationBindingSource
       // 
@@ -217,17 +219,28 @@
       this.toComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToComboBoxKeyUp);
       this.toComboBox.Leave += new System.EventHandler(this.ToComboBox_Leave);
       // 
+      // timePicker
+      // 
+      this.timePicker.CustomFormat = "HH:mm";
+      this.timePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+      this.timePicker.Location = new System.Drawing.Point(171, 87);
+      this.timePicker.Name = "timePicker";
+      this.timePicker.ShowUpDown = true;
+      this.timePicker.Size = new System.Drawing.Size(181, 27);
+      this.timePicker.TabIndex = 10;
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.timePicker);
       this.Controls.Add(this.toComboBox);
       this.Controls.Add(this.fromComboBox);
       this.Controls.Add(this.testBox);
       this.Controls.Add(this.searchButton);
       this.Controls.Add(this.verbindungenDataGridView);
-      this.Controls.Add(this.dateTimePicker1);
+      this.Controls.Add(this.datePicker);
       this.Controls.Add(this.selectionGroup);
       this.Name = "Form1";
       this.Text = "d";
@@ -248,7 +261,7 @@
     private GroupBox selectionGroup;
     private RadioButton karteRButton;
     private RadioButton abfahrtstafelRButton;
-    private DateTimePicker dateTimePicker1;
+    private DateTimePicker datePicker;
     private BindingSource stationBindingSource;
     private DataGridView verbindungenDataGridView;
     private DataGridViewTextBoxColumn DepartTimeColumn;
@@ -262,5 +275,6 @@
     private TextBox testBox;
     private ComboBox fromComboBox;
     private ComboBox toComboBox;
+    private DateTimePicker timePicker;
   }
 }
