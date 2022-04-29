@@ -156,7 +156,8 @@ namespace SwissTransportGUI
         string? toName = connectionRow.Cells[3].Value?.ToString();
         string? toPlatform = connectionRow.Cells[4].Value?.ToString();
         string? toArrival = connectionRow.Cells[5].Value?.ToString();
-        new Share(fromDeparture, fromPlatform, fromName, toName, toPlatform, toArrival);
+        Share shareConnection = new Share(fromDeparture, fromPlatform, fromName, toName, toPlatform, toArrival) ;
+        shareConnection.OpenShare();
       }
       else
       {

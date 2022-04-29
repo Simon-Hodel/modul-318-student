@@ -32,7 +32,7 @@ namespace SwissTransportGUI
       get
       {
         return $"mailto:{"mailname@mailservice.com"}?subject={"Passende Verbindung"}" +
-               $"&body=Von ={_fromName}, Abfahrtszeit ={_fromDeparture}, Platfrom ={_fromPlatform}\n" +
+               $"&body=Von ={_fromName}, Abfahrtszeit ={_fromDeparture}, Platfrom ={_fromPlatform} \n" +
                $"Nach ={_toName}, Ankunftszeit ={_toArrival}, Platform ={_toPlatform}";
       }
     }
