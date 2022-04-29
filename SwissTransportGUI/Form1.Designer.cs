@@ -36,12 +36,6 @@
       this.datePicker = new System.Windows.Forms.DateTimePicker();
       this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.verbindungenDataGridView = new System.Windows.Forms.DataGridView();
-      this.DepartTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.PlatformColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.FromTrainstationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.ToTrainstationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.ArrivalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.PlatformArrivalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
       this.searchButton = new System.Windows.Forms.Button();
       this.fromComboBox = new System.Windows.Forms.ComboBox();
@@ -50,6 +44,13 @@
       this.isArrivalTimeCheckBox = new System.Windows.Forms.CheckBox();
       this.wechselbutton = new System.Windows.Forms.Button();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.DepartTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.PlatformColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.FromTrainstationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ToTrainstationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ArrivalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.PlatformArrivalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.shareButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
@@ -131,7 +132,8 @@
             this.FromTrainstationColumn,
             this.ToTrainstationColumn,
             this.ArrivalTimeColumn,
-            this.PlatformArrivalColumn});
+            this.PlatformArrivalColumn,
+            this.shareButtonColumn});
       this.verbindungenDataGridView.Location = new System.Drawing.Point(2, 127);
       this.verbindungenDataGridView.Name = "verbindungenDataGridView";
       this.verbindungenDataGridView.RowHeadersVisible = false;
@@ -139,48 +141,7 @@
       this.verbindungenDataGridView.RowTemplate.Height = 29;
       this.verbindungenDataGridView.Size = new System.Drawing.Size(804, 311);
       this.verbindungenDataGridView.TabIndex = 11;
-      // 
-      // DepartTimeColumn
-      // 
-      this.DepartTimeColumn.HeaderText = "Abfahrtszeit";
-      this.DepartTimeColumn.MinimumWidth = 6;
-      this.DepartTimeColumn.Name = "DepartTimeColumn";
-      this.DepartTimeColumn.ReadOnly = true;
-      // 
-      // PlatformColumn
-      // 
-      this.PlatformColumn.HeaderText = "Gleis";
-      this.PlatformColumn.MinimumWidth = 6;
-      this.PlatformColumn.Name = "PlatformColumn";
-      this.PlatformColumn.ReadOnly = true;
-      // 
-      // FromTrainstationColumn
-      // 
-      this.FromTrainstationColumn.HeaderText = "Von";
-      this.FromTrainstationColumn.MinimumWidth = 6;
-      this.FromTrainstationColumn.Name = "FromTrainstationColumn";
-      this.FromTrainstationColumn.ReadOnly = true;
-      // 
-      // ToTrainstationColumn
-      // 
-      this.ToTrainstationColumn.HeaderText = "Nach";
-      this.ToTrainstationColumn.MinimumWidth = 6;
-      this.ToTrainstationColumn.Name = "ToTrainstationColumn";
-      this.ToTrainstationColumn.ReadOnly = true;
-      // 
-      // ArrivalTimeColumn
-      // 
-      this.ArrivalTimeColumn.HeaderText = "Ankunftszeit";
-      this.ArrivalTimeColumn.MinimumWidth = 6;
-      this.ArrivalTimeColumn.Name = "ArrivalTimeColumn";
-      this.ArrivalTimeColumn.ReadOnly = true;
-      // 
-      // PlatformArrivalColumn
-      // 
-      this.PlatformArrivalColumn.HeaderText = "Gleis";
-      this.PlatformArrivalColumn.MinimumWidth = 6;
-      this.PlatformArrivalColumn.Name = "PlatformArrivalColumn";
-      this.PlatformArrivalColumn.ReadOnly = true;
+      this.verbindungenDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.verbindungenDataGridView_CellContentClick);
       // 
       // searchButton
       // 
@@ -258,6 +219,56 @@
       this.pictureBox1.TabIndex = 13;
       this.pictureBox1.TabStop = false;
       // 
+      // DepartTimeColumn
+      // 
+      this.DepartTimeColumn.HeaderText = "Abfahrtszeit";
+      this.DepartTimeColumn.MinimumWidth = 6;
+      this.DepartTimeColumn.Name = "DepartTimeColumn";
+      this.DepartTimeColumn.ReadOnly = true;
+      // 
+      // PlatformColumn
+      // 
+      this.PlatformColumn.HeaderText = "Gleis";
+      this.PlatformColumn.MinimumWidth = 6;
+      this.PlatformColumn.Name = "PlatformColumn";
+      this.PlatformColumn.ReadOnly = true;
+      // 
+      // FromTrainstationColumn
+      // 
+      this.FromTrainstationColumn.HeaderText = "Von";
+      this.FromTrainstationColumn.MinimumWidth = 6;
+      this.FromTrainstationColumn.Name = "FromTrainstationColumn";
+      this.FromTrainstationColumn.ReadOnly = true;
+      // 
+      // ToTrainstationColumn
+      // 
+      this.ToTrainstationColumn.HeaderText = "Nach";
+      this.ToTrainstationColumn.MinimumWidth = 6;
+      this.ToTrainstationColumn.Name = "ToTrainstationColumn";
+      this.ToTrainstationColumn.ReadOnly = true;
+      // 
+      // ArrivalTimeColumn
+      // 
+      this.ArrivalTimeColumn.HeaderText = "Ankunftszeit";
+      this.ArrivalTimeColumn.MinimumWidth = 6;
+      this.ArrivalTimeColumn.Name = "ArrivalTimeColumn";
+      this.ArrivalTimeColumn.ReadOnly = true;
+      // 
+      // PlatformArrivalColumn
+      // 
+      this.PlatformArrivalColumn.HeaderText = "Gleis";
+      this.PlatformArrivalColumn.MinimumWidth = 6;
+      this.PlatformArrivalColumn.Name = "PlatformArrivalColumn";
+      this.PlatformArrivalColumn.ReadOnly = true;
+      // 
+      // shareButtonColumn
+      // 
+      this.shareButtonColumn.HeaderText = "Teilen";
+      this.shareButtonColumn.MinimumWidth = 6;
+      this.shareButtonColumn.Name = "shareButtonColumn";
+      this.shareButtonColumn.Text = "Teilen";
+      this.shareButtonColumn.UseColumnTextForButtonValue = true;
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -300,12 +311,6 @@
     private DateTimePicker datePicker;
     private BindingSource stationBindingSource;
     private DataGridView verbindungenDataGridView;
-    private DataGridViewTextBoxColumn DepartTimeColumn;
-    private DataGridViewTextBoxColumn PlatformColumn;
-    private DataGridViewTextBoxColumn FromTrainstationColumn;
-    private DataGridViewTextBoxColumn ToTrainstationColumn;
-    private DataGridViewTextBoxColumn ArrivalTimeColumn;
-    private DataGridViewTextBoxColumn PlatformArrivalColumn;
     private BindingSource bindingSource1;
     private Button searchButton;
     private ComboBox fromComboBox;
@@ -314,5 +319,12 @@
     private CheckBox isArrivalTimeCheckBox;
     private Button wechselbutton;
     private PictureBox pictureBox1;
+    private DataGridViewTextBoxColumn DepartTimeColumn;
+    private DataGridViewTextBoxColumn PlatformColumn;
+    private DataGridViewTextBoxColumn FromTrainstationColumn;
+    private DataGridViewTextBoxColumn ToTrainstationColumn;
+    private DataGridViewTextBoxColumn ArrivalTimeColumn;
+    private DataGridViewTextBoxColumn PlatformArrivalColumn;
+    private DataGridViewButtonColumn shareButtonColumn;
   }
 }
