@@ -35,15 +35,7 @@
       this.abfahrtstafelRButton = new System.Windows.Forms.RadioButton();
       this.datePicker = new System.Windows.Forms.DateTimePicker();
       this.stationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.verbindungenDataGridView = new System.Windows.Forms.DataGridView();
-      this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-      this.searchButton = new System.Windows.Forms.Button();
-      this.fromComboBox = new System.Windows.Forms.ComboBox();
-      this.toComboBox = new System.Windows.Forms.ComboBox();
-      this.timePicker = new System.Windows.Forms.DateTimePicker();
-      this.isArrivalTimeCheckBox = new System.Windows.Forms.CheckBox();
-      this.wechselbutton = new System.Windows.Forms.Button();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.connectionsDataGridView = new System.Windows.Forms.DataGridView();
       this.DepartTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.PlatformColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.FromTrainstationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +43,17 @@
       this.ArrivalTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.PlatformArrivalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.shareButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+      this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+      this.searchButton = new System.Windows.Forms.Button();
+      this.fromComboBox = new System.Windows.Forms.ComboBox();
+      this.toComboBox = new System.Windows.Forms.ComboBox();
+      this.timePicker = new System.Windows.Forms.DateTimePicker();
+      this.isArrivalTimeCheckBox = new System.Windows.Forms.CheckBox();
+      this.changebutton = new System.Windows.Forms.Button();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
@@ -121,12 +121,12 @@
       // 
       this.stationBindingSource.DataSource = typeof(SwissTransport.Models.Station);
       // 
-      // verbindungenDataGridView
+      // connectionsDataGridView
       // 
-      this.verbindungenDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-      this.verbindungenDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-      this.verbindungenDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.verbindungenDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+      this.connectionsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+      this.connectionsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+      this.connectionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.connectionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DepartTimeColumn,
             this.PlatformColumn,
             this.FromTrainstationColumn,
@@ -134,14 +134,64 @@
             this.ArrivalTimeColumn,
             this.PlatformArrivalColumn,
             this.shareButtonColumn});
-      this.verbindungenDataGridView.Location = new System.Drawing.Point(2, 127);
-      this.verbindungenDataGridView.Name = "verbindungenDataGridView";
-      this.verbindungenDataGridView.RowHeadersVisible = false;
-      this.verbindungenDataGridView.RowHeadersWidth = 51;
-      this.verbindungenDataGridView.RowTemplate.Height = 29;
-      this.verbindungenDataGridView.Size = new System.Drawing.Size(804, 311);
-      this.verbindungenDataGridView.TabIndex = 11;
-      this.verbindungenDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VerbindungenDataGridView_CellContentClick);
+      this.connectionsDataGridView.Location = new System.Drawing.Point(2, 127);
+      this.connectionsDataGridView.Name = "connectionsDataGridView";
+      this.connectionsDataGridView.RowHeadersVisible = false;
+      this.connectionsDataGridView.RowHeadersWidth = 51;
+      this.connectionsDataGridView.RowTemplate.Height = 29;
+      this.connectionsDataGridView.Size = new System.Drawing.Size(804, 311);
+      this.connectionsDataGridView.TabIndex = 11;
+      this.connectionsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConnectionsDataGridView_CellContentClick);
+      // 
+      // DepartTimeColumn
+      // 
+      this.DepartTimeColumn.HeaderText = "Abfahrtszeit";
+      this.DepartTimeColumn.MinimumWidth = 6;
+      this.DepartTimeColumn.Name = "DepartTimeColumn";
+      this.DepartTimeColumn.ReadOnly = true;
+      // 
+      // PlatformColumn
+      // 
+      this.PlatformColumn.HeaderText = "Gleis";
+      this.PlatformColumn.MinimumWidth = 6;
+      this.PlatformColumn.Name = "PlatformColumn";
+      this.PlatformColumn.ReadOnly = true;
+      // 
+      // FromTrainstationColumn
+      // 
+      this.FromTrainstationColumn.HeaderText = "Von";
+      this.FromTrainstationColumn.MinimumWidth = 6;
+      this.FromTrainstationColumn.Name = "FromTrainstationColumn";
+      this.FromTrainstationColumn.ReadOnly = true;
+      // 
+      // ToTrainstationColumn
+      // 
+      this.ToTrainstationColumn.HeaderText = "Nach";
+      this.ToTrainstationColumn.MinimumWidth = 6;
+      this.ToTrainstationColumn.Name = "ToTrainstationColumn";
+      this.ToTrainstationColumn.ReadOnly = true;
+      // 
+      // ArrivalTimeColumn
+      // 
+      this.ArrivalTimeColumn.HeaderText = "Ankunftszeit";
+      this.ArrivalTimeColumn.MinimumWidth = 6;
+      this.ArrivalTimeColumn.Name = "ArrivalTimeColumn";
+      this.ArrivalTimeColumn.ReadOnly = true;
+      // 
+      // PlatformArrivalColumn
+      // 
+      this.PlatformArrivalColumn.HeaderText = "Gleis";
+      this.PlatformArrivalColumn.MinimumWidth = 6;
+      this.PlatformArrivalColumn.Name = "PlatformArrivalColumn";
+      this.PlatformArrivalColumn.ReadOnly = true;
+      // 
+      // shareButtonColumn
+      // 
+      this.shareButtonColumn.HeaderText = "Teilen";
+      this.shareButtonColumn.MinimumWidth = 6;
+      this.shareButtonColumn.Name = "shareButtonColumn";
+      this.shareButtonColumn.Text = "Teilen";
+      this.shareButtonColumn.UseColumnTextForButtonValue = true;
       // 
       // searchButton
       // 
@@ -198,15 +248,15 @@
       this.isArrivalTimeCheckBox.Text = "Ankunftszeit?";
       this.isArrivalTimeCheckBox.UseVisualStyleBackColor = true;
       // 
-      // wechselbutton
+      // changebutton
       // 
-      this.wechselbutton.Location = new System.Drawing.Point(358, 12);
-      this.wechselbutton.Name = "wechselbutton";
-      this.wechselbutton.Size = new System.Drawing.Size(187, 29);
-      this.wechselbutton.TabIndex = 10;
-      this.wechselbutton.Text = "Rückfahrt";
-      this.wechselbutton.UseVisualStyleBackColor = true;
-      this.wechselbutton.Click += new System.EventHandler(this.Wechselbutton_Click);
+      this.changebutton.Location = new System.Drawing.Point(358, 12);
+      this.changebutton.Name = "changebutton";
+      this.changebutton.Size = new System.Drawing.Size(187, 29);
+      this.changebutton.TabIndex = 10;
+      this.changebutton.Text = "Rückfahrt";
+      this.changebutton.UseVisualStyleBackColor = true;
+      this.changebutton.Click += new System.EventHandler(this.Changebutton_Click);
       // 
       // pictureBox1
       // 
@@ -219,69 +269,19 @@
       this.pictureBox1.TabIndex = 13;
       this.pictureBox1.TabStop = false;
       // 
-      // DepartTimeColumn
-      // 
-      this.DepartTimeColumn.HeaderText = "Abfahrtszeit";
-      this.DepartTimeColumn.MinimumWidth = 6;
-      this.DepartTimeColumn.Name = "DepartTimeColumn";
-      this.DepartTimeColumn.ReadOnly = true;
-      // 
-      // PlatformColumn
-      // 
-      this.PlatformColumn.HeaderText = "Gleis";
-      this.PlatformColumn.MinimumWidth = 6;
-      this.PlatformColumn.Name = "PlatformColumn";
-      this.PlatformColumn.ReadOnly = true;
-      // 
-      // FromTrainstationColumn
-      // 
-      this.FromTrainstationColumn.HeaderText = "Von";
-      this.FromTrainstationColumn.MinimumWidth = 6;
-      this.FromTrainstationColumn.Name = "FromTrainstationColumn";
-      this.FromTrainstationColumn.ReadOnly = true;
-      // 
-      // ToTrainstationColumn
-      // 
-      this.ToTrainstationColumn.HeaderText = "Nach";
-      this.ToTrainstationColumn.MinimumWidth = 6;
-      this.ToTrainstationColumn.Name = "ToTrainstationColumn";
-      this.ToTrainstationColumn.ReadOnly = true;
-      // 
-      // ArrivalTimeColumn
-      // 
-      this.ArrivalTimeColumn.HeaderText = "Ankunftszeit";
-      this.ArrivalTimeColumn.MinimumWidth = 6;
-      this.ArrivalTimeColumn.Name = "ArrivalTimeColumn";
-      this.ArrivalTimeColumn.ReadOnly = true;
-      // 
-      // PlatformArrivalColumn
-      // 
-      this.PlatformArrivalColumn.HeaderText = "Gleis";
-      this.PlatformArrivalColumn.MinimumWidth = 6;
-      this.PlatformArrivalColumn.Name = "PlatformArrivalColumn";
-      this.PlatformArrivalColumn.ReadOnly = true;
-      // 
-      // shareButtonColumn
-      // 
-      this.shareButtonColumn.HeaderText = "Teilen";
-      this.shareButtonColumn.MinimumWidth = 6;
-      this.shareButtonColumn.Name = "shareButtonColumn";
-      this.shareButtonColumn.Text = "Teilen";
-      this.shareButtonColumn.UseColumnTextForButtonValue = true;
-      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(809, 450);
       this.Controls.Add(this.pictureBox1);
-      this.Controls.Add(this.wechselbutton);
+      this.Controls.Add(this.changebutton);
       this.Controls.Add(this.isArrivalTimeCheckBox);
       this.Controls.Add(this.timePicker);
       this.Controls.Add(this.toComboBox);
       this.Controls.Add(this.fromComboBox);
       this.Controls.Add(this.searchButton);
-      this.Controls.Add(this.verbindungenDataGridView);
+      this.Controls.Add(this.connectionsDataGridView);
       this.Controls.Add(this.datePicker);
       this.Controls.Add(this.selectionGroup);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -294,7 +294,7 @@
       this.selectionGroup.ResumeLayout(false);
       this.selectionGroup.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
@@ -310,14 +310,14 @@
     private RadioButton abfahrtstafelRButton;
     private DateTimePicker datePicker;
     private BindingSource stationBindingSource;
-    private DataGridView verbindungenDataGridView;
+    private DataGridView connectionsDataGridView;
     private BindingSource bindingSource1;
     private Button searchButton;
     private ComboBox fromComboBox;
     private ComboBox toComboBox;
     private DateTimePicker timePicker;
     private CheckBox isArrivalTimeCheckBox;
-    private Button wechselbutton;
+    private Button changebutton;
     private PictureBox pictureBox1;
     private DataGridViewTextBoxColumn DepartTimeColumn;
     private DataGridViewTextBoxColumn PlatformColumn;

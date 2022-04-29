@@ -11,7 +11,7 @@ namespace SwissTransportGUI
 {
   
   
-  internal class Autofill
+  public class Autofill
   {
     ITransport transport = new Transport();
     

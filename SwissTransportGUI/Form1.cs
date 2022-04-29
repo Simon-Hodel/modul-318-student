@@ -49,8 +49,8 @@ namespace SwissTransportGUI
 
               foreach (Connection connection in connections.ConnectionList)
               {
-                verbindungenDataGridView.Rows.Clear();
-                verbindungenDataGridView.Rows.Add(connection.From.Departure, connection.From.Platform,
+                connectionsDataGridView.Rows.Clear();
+                connectionsDataGridView.Rows.Add(connection.From.Departure, connection.From.Platform,
                   connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival, connection.To.Platform);
               }
               break;
@@ -60,8 +60,8 @@ namespace SwissTransportGUI
 
               foreach (StationBoard station in stationBoard.Entries)
               {
-                verbindungenDataGridView.Rows.Clear();
-                verbindungenDataGridView.Rows.Add(station.Stop.Departure, "", stationBoard.Station.Name, station.To, "", "");
+                connectionsDataGridView.Rows.Clear();
+                connectionsDataGridView.Rows.Add(station.Stop.Departure, "", stationBoard.Station.Name, station.To, "", "");
               }
               break;
 
@@ -122,7 +122,7 @@ namespace SwissTransportGUI
       timePicker.Visible = true;
       datePicker.Visible = true;
       isArrivalTimeCheckBox.Visible = true;
-      wechselbutton.Visible = true;
+      changebutton.Visible = true;
       selectionNumber = 1;
     }
     private void AbfahrtstafelRButton_CheckedChanged(object sender, EventArgs e)
@@ -131,12 +131,12 @@ namespace SwissTransportGUI
       timePicker.Visible = false;
       datePicker.Visible = false;
       isArrivalTimeCheckBox.Visible = false;
-      wechselbutton.Visible = false;
+      changebutton.Visible = false;
       selectionNumber = 2;
 
     }
 
-    private void Wechselbutton_Click(object sender, EventArgs e)
+    private void Changebutton_Click(object sender, EventArgs e)
     {
       string zwischenspeicher = fromComboBox.Text;
         fromComboBox.Text = toComboBox.Text;
@@ -145,11 +145,11 @@ namespace SwissTransportGUI
         
     }
 
-    private void VerbindungenDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void ConnectionsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-      if (verbindungenDataGridView.Columns[e.ColumnIndex].Name == "shareButtonColumn")
+      if (connectionsDataGridView.Columns[e.ColumnIndex].Name == "shareButtonColumn")
       {
-        var connectionRow = verbindungenDataGridView.Rows[e.RowIndex];
+        var connectionRow = connectionsDataGridView.Rows[e.RowIndex];
         string? fromDeparture = connectionRow.Cells[0].Value?.ToString();
         string? fromPlatform = connectionRow.Cells[1].Value?.ToString();
         string? fromName = connectionRow.Cells[2].Value?.ToString();
