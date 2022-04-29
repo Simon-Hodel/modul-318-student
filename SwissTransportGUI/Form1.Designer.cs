@@ -70,7 +70,7 @@
       this.verbindungenRButton.TabStop = true;
       this.verbindungenRButton.Text = "Verbindungen Suchen";
       this.verbindungenRButton.UseVisualStyleBackColor = true;
-      this.verbindungenRButton.CheckedChanged += new System.EventHandler(this.verbindungenRButton_CheckedChanged);
+      this.verbindungenRButton.CheckedChanged += new System.EventHandler(this.VerbindungenRButton_CheckedChanged);
       this.verbindungenRButton.Click += new System.EventHandler(this.VerbindungenRButton_Click);
       // 
       // selectionGroup
@@ -105,7 +105,7 @@
       this.abfahrtstafelRButton.TabIndex = 2;
       this.abfahrtstafelRButton.Text = "Abfahrtstafel";
       this.abfahrtstafelRButton.UseVisualStyleBackColor = true;
-      this.abfahrtstafelRButton.CheckedChanged += new System.EventHandler(this.abfahrtstafelRButton_CheckedChanged);
+      this.abfahrtstafelRButton.CheckedChanged += new System.EventHandler(this.AbfahrtstafelRButton_CheckedChanged);
       // 
       // datePicker
       // 
@@ -141,7 +141,7 @@
       this.verbindungenDataGridView.RowTemplate.Height = 29;
       this.verbindungenDataGridView.Size = new System.Drawing.Size(804, 311);
       this.verbindungenDataGridView.TabIndex = 11;
-      this.verbindungenDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.verbindungenDataGridView_CellContentClick);
+      this.verbindungenDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VerbindungenDataGridView_CellContentClick);
       // 
       // searchButton
       // 

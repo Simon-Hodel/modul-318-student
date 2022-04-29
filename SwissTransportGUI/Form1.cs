@@ -116,7 +116,7 @@ namespace SwissTransportGUI
       fromComboBox.DroppedDown = false;
     }
 
-    private void verbindungenRButton_CheckedChanged(object sender, EventArgs e)
+    private void VerbindungenRButton_CheckedChanged(object sender, EventArgs e)
     {
       toComboBox.Visible = true;
       timePicker.Visible = true;
@@ -125,7 +125,7 @@ namespace SwissTransportGUI
       wechselbutton.Visible = true;
       selectionNumber = 1;
     }
-    private void abfahrtstafelRButton_CheckedChanged(object sender, EventArgs e)
+    private void AbfahrtstafelRButton_CheckedChanged(object sender, EventArgs e)
     {
       toComboBox.Visible = false;
       timePicker.Visible = false;
@@ -145,7 +145,7 @@ namespace SwissTransportGUI
         
     }
 
-    private void verbindungenDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void VerbindungenDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
       if (verbindungenDataGridView.Columns[e.ColumnIndex].Name == "shareButtonColumn")
       {
