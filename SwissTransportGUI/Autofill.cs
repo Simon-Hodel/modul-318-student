@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Threading.Tasks.Dataflow;
 using SwissTransport.Models;
 using SwissTransport.Core;
 
@@ -14,8 +14,7 @@ namespace SwissTransportGUI
   internal class Autofill
   {
     ITransport transport = new Transport();
- 
-
+    
     public void AutoFillMe(ComboBox searchBox)
     {
       searchBox.Items.Clear();

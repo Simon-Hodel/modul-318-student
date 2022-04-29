@@ -1,10 +1,10 @@
 ﻿namespace SwissTransport.Core
 {
-  using System;
-  using System.Net.Http;
-  using System.Threading.Tasks;
   using Newtonsoft.Json;
   using SwissTransport.Models;
+  using System;
+  using System.Net.Http;
+
 
   public class Transport : ITransport, IDisposable
   {
@@ -64,16 +64,16 @@
 
     private T GetObject<T>(Uri uri)
     {
+      
       HttpResponseMessage response = this.httpClient
           .GetAsync(uri)
           .GetAwaiter()
           .GetResult();
-      string content = response.Content
+        string content = response.Content
           .ReadAsStringAsync()
           .GetAwaiter()
           .GetResult();
-
-      return JsonConvert.DeserializeObject<T>(content);
+        return JsonConvert.DeserializeObject<T>(content);
     }
   }
 }

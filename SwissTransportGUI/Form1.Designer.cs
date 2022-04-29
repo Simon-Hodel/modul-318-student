@@ -48,6 +48,7 @@
       this.toComboBox = new System.Windows.Forms.ComboBox();
       this.timePicker = new System.Windows.Forms.DateTimePicker();
       this.isArrivalTimeCheckBox = new System.Windows.Forms.CheckBox();
+      this.wechselbutton = new System.Windows.Forms.Button();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
@@ -66,6 +67,7 @@
       this.verbindungenRButton.TabStop = true;
       this.verbindungenRButton.Text = "Verbindungen Suchen";
       this.verbindungenRButton.UseVisualStyleBackColor = true;
+      this.verbindungenRButton.CheckedChanged += new System.EventHandler(this.verbindungenRButton_CheckedChanged);
       this.verbindungenRButton.Click += new System.EventHandler(this.VerbindungenRButton_Click);
       // 
       // selectionGroup
@@ -100,6 +102,7 @@
       this.abfahrtstafelRButton.TabIndex = 1;
       this.abfahrtstafelRButton.Text = "Abfahrtstafel";
       this.abfahrtstafelRButton.UseVisualStyleBackColor = true;
+      this.abfahrtstafelRButton.CheckedChanged += new System.EventHandler(this.abfahrtstafelRButton_CheckedChanged);
       // 
       // datePicker
       // 
@@ -195,6 +198,7 @@
       this.fromComboBox.Name = "fromComboBox";
       this.fromComboBox.Size = new System.Drawing.Size(163, 28);
       this.fromComboBox.TabIndex = 8;
+      this.fromComboBox.Text = "Von...";
       this.fromComboBox.Enter += new System.EventHandler(this.FromComboBox_Enter);
       this.fromComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FromComboBox_KeyUp);
       this.fromComboBox.Leave += new System.EventHandler(this.FromComboBox_Leave);
@@ -206,6 +210,7 @@
       this.toComboBox.Name = "toComboBox";
       this.toComboBox.Size = new System.Drawing.Size(181, 28);
       this.toComboBox.TabIndex = 9;
+      this.toComboBox.Text = "Nach...";
       this.toComboBox.Enter += new System.EventHandler(this.ToComboBox_Enter);
       this.toComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToComboBoxKeyUp);
       this.toComboBox.Leave += new System.EventHandler(this.ToComboBox_Leave);
@@ -230,11 +235,22 @@
       this.isArrivalTimeCheckBox.Text = "Ankunftszeit?";
       this.isArrivalTimeCheckBox.UseVisualStyleBackColor = true;
       // 
+      // wechselbutton
+      // 
+      this.wechselbutton.Location = new System.Drawing.Point(358, 12);
+      this.wechselbutton.Name = "wechselbutton";
+      this.wechselbutton.Size = new System.Drawing.Size(187, 29);
+      this.wechselbutton.TabIndex = 12;
+      this.wechselbutton.Text = "Rückfahrt";
+      this.wechselbutton.UseVisualStyleBackColor = true;
+      this.wechselbutton.Click += new System.EventHandler(this.wechselbutton_Click);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(809, 450);
+      this.Controls.Add(this.wechselbutton);
       this.Controls.Add(this.isArrivalTimeCheckBox);
       this.Controls.Add(this.timePicker);
       this.Controls.Add(this.toComboBox);
@@ -248,7 +264,7 @@
       this.MinimizeBox = false;
       this.Name = "Form1";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-      this.Text = "d";
+      this.Text = "MySbbApp";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.selectionGroup.ResumeLayout(false);
       this.selectionGroup.PerformLayout();
@@ -281,5 +297,6 @@
     private ComboBox toComboBox;
     private DateTimePicker timePicker;
     private CheckBox isArrivalTimeCheckBox;
+    private Button wechselbutton;
   }
 }

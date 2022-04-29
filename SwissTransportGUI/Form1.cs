@@ -11,13 +11,15 @@ namespace SwissTransportGUI
       InitializeComponent();
     }
 
+   
     ITransport transport = new Transport();
     Autofill autofill = new Autofill();
+    int selectionNumber = 1;
 
 
     private void Form1_Load(object sender, EventArgs e)
     {
-
+     
 
     }
 
@@ -29,25 +31,37 @@ namespace SwissTransportGUI
 
     private void TestButton_Click(object sender, EventArgs e)
     {
-     bool isArrival = false;
-     if (isArrivalTimeCheckBox.Checked)
-     {
-       isArrival = true;
 
-     }
-      var connections = transport.GetConnections(fromComboBox.Text, toComboBox.Text, datePicker.Value, timePicker.Value, isArrival);
-
-      foreach (Connection connection in connections.ConnectionList)
+      switch (selectionNumber)
       {
-        verbindungenDataGridView.Rows.Add(connection.From.Departure, connection.From.Platform,
-          connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival, connection.To.Platform);
+        case  1:
+          bool isArrival = false;
+          if (isArrivalTimeCheckBox.Checked)
+          {
+            isArrival = true;
+
+          }
+          var connections = transport.GetConnections(fromComboBox.Text, toComboBox.Text, datePicker.Value, timePicker.Value, isArrival);
+
+          foreach (Connection connection in connections.ConnectionList)
+          {
+            verbindungenDataGridView.Rows.Clear();
+            verbindungenDataGridView.Rows.Add(connection.From.Departure, connection.From.Platform,
+              connection.From.Station.Name, connection.To.Station.Name, connection.To.Arrival, connection.To.Platform);
+          }
+          break;
+
+        case 2:
+          var stationBoard = transport.GetStationBoard(fromComboBox.Text, fromComboBox.Text);
+
+          foreach (StationBoard station in stationBoard.Entries)
+          {
+            verbindungenDataGridView.Rows.Clear();
+            verbindungenDataGridView.Rows.Add(station.Stop.Departure,"",stationBoard.Station.Name,station.To,"","");
+          }
+          break;
+
       }
-    }
-
-    private void AutoSuggestions(ComboBox comboBox)
-    {
-
-     
     }
 
     private void FromComboBox_KeyUp(object sender, KeyEventArgs e)
@@ -85,5 +99,33 @@ namespace SwissTransportGUI
     {
       fromComboBox.DroppedDown = false;
     }
+
+    private void verbindungenRButton_CheckedChanged(object sender, EventArgs e)
+    {
+      toComboBox.Visible = true;
+      timePicker.Visible = true;
+      datePicker.Visible = true;
+      isArrivalTimeCheckBox.Visible = true;
+      wechselbutton.Visible = true;
+      selectionNumber = 1;
+    }
+    private void abfahrtstafelRButton_CheckedChanged(object sender, EventArgs e)
+    {
+      toComboBox.Visible = false;
+      timePicker.Visible = false;
+      datePicker.Visible = false;
+      isArrivalTimeCheckBox.Visible = false;
+      wechselbutton.Visible = false;
+      selectionNumber = 2;
+
+    }
+
+    private void wechselbutton_Click(object sender, EventArgs e)
+    {
+      string zwischenspeicher = fromComboBox.Text;
+        fromComboBox.Text = toComboBox.Text;
+        toComboBox.Text = zwischenspeicher;
+    }
   }
+ 
 }
