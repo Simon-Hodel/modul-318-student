@@ -29,7 +29,7 @@ namespace SwissTransportGUI
 
     }
 
-    private void TestButton_Click(object sender, EventArgs e)
+    private void SearchButton_Click(object sender, EventArgs e)
     {
 
       switch (selectionNumber)
@@ -120,11 +120,13 @@ namespace SwissTransportGUI
 
     }
 
-    private void wechselbutton_Click(object sender, EventArgs e)
+    private void Wechselbutton_Click(object sender, EventArgs e)
     {
       string zwischenspeicher = fromComboBox.Text;
         fromComboBox.Text = toComboBox.Text;
         toComboBox.Text = zwischenspeicher;
+        SearchButton_Click(sender,e);
+        
     }
   }
  

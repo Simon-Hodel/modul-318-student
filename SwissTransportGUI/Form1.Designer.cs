@@ -49,10 +49,12 @@
       this.timePicker = new System.Windows.Forms.DateTimePicker();
       this.isArrivalTimeCheckBox = new System.Windows.Forms.CheckBox();
       this.wechselbutton = new System.Windows.Forms.Button();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.selectionGroup.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // verbindungenRButton
@@ -63,7 +65,7 @@
       this.verbindungenRButton.Location = new System.Drawing.Point(0, 13);
       this.verbindungenRButton.Name = "verbindungenRButton";
       this.verbindungenRButton.Size = new System.Drawing.Size(162, 30);
-      this.verbindungenRButton.TabIndex = 0;
+      this.verbindungenRButton.TabIndex = 1;
       this.verbindungenRButton.TabStop = true;
       this.verbindungenRButton.Text = "Verbindungen Suchen";
       this.verbindungenRButton.UseVisualStyleBackColor = true;
@@ -88,7 +90,7 @@
       this.karteRButton.Location = new System.Drawing.Point(279, 13);
       this.karteRButton.Name = "karteRButton";
       this.karteRButton.Size = new System.Drawing.Size(54, 30);
-      this.karteRButton.TabIndex = 2;
+      this.karteRButton.TabIndex = 3;
       this.karteRButton.Text = "Karte";
       this.karteRButton.UseVisualStyleBackColor = true;
       // 
@@ -99,7 +101,7 @@
       this.abfahrtstafelRButton.Location = new System.Drawing.Point(168, 13);
       this.abfahrtstafelRButton.Name = "abfahrtstafelRButton";
       this.abfahrtstafelRButton.Size = new System.Drawing.Size(105, 30);
-      this.abfahrtstafelRButton.TabIndex = 1;
+      this.abfahrtstafelRButton.TabIndex = 2;
       this.abfahrtstafelRButton.Text = "Abfahrtstafel";
       this.abfahrtstafelRButton.UseVisualStyleBackColor = true;
       this.abfahrtstafelRButton.CheckedChanged += new System.EventHandler(this.abfahrtstafelRButton_CheckedChanged);
@@ -111,7 +113,7 @@
       this.datePicker.Location = new System.Drawing.Point(3, 87);
       this.datePicker.Name = "datePicker";
       this.datePicker.Size = new System.Drawing.Size(162, 27);
-      this.datePicker.TabIndex = 4;
+      this.datePicker.TabIndex = 6;
       this.datePicker.Value = new System.DateTime(2022, 4, 28, 0, 0, 0, 0);
       // 
       // stationBindingSource
@@ -136,7 +138,7 @@
       this.verbindungenDataGridView.RowHeadersWidth = 51;
       this.verbindungenDataGridView.RowTemplate.Height = 29;
       this.verbindungenDataGridView.Size = new System.Drawing.Size(804, 311);
-      this.verbindungenDataGridView.TabIndex = 5;
+      this.verbindungenDataGridView.TabIndex = 11;
       // 
       // DepartTimeColumn
       // 
@@ -185,10 +187,10 @@
       this.searchButton.Location = new System.Drawing.Point(358, 40);
       this.searchButton.Name = "searchButton";
       this.searchButton.Size = new System.Drawing.Size(187, 55);
-      this.searchButton.TabIndex = 6;
+      this.searchButton.TabIndex = 9;
       this.searchButton.Text = "Verbindungen suchen";
       this.searchButton.UseVisualStyleBackColor = true;
-      this.searchButton.Click += new System.EventHandler(this.TestButton_Click);
+      this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
       // 
       // fromComboBox
       // 
@@ -197,7 +199,7 @@
       this.fromComboBox.Location = new System.Drawing.Point(2, 52);
       this.fromComboBox.Name = "fromComboBox";
       this.fromComboBox.Size = new System.Drawing.Size(163, 28);
-      this.fromComboBox.TabIndex = 8;
+      this.fromComboBox.TabIndex = 4;
       this.fromComboBox.Text = "Von...";
       this.fromComboBox.Enter += new System.EventHandler(this.FromComboBox_Enter);
       this.fromComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FromComboBox_KeyUp);
@@ -209,7 +211,7 @@
       this.toComboBox.Location = new System.Drawing.Point(171, 52);
       this.toComboBox.Name = "toComboBox";
       this.toComboBox.Size = new System.Drawing.Size(181, 28);
-      this.toComboBox.TabIndex = 9;
+      this.toComboBox.TabIndex = 5;
       this.toComboBox.Text = "Nach...";
       this.toComboBox.Enter += new System.EventHandler(this.ToComboBox_Enter);
       this.toComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ToComboBoxKeyUp);
@@ -223,7 +225,7 @@
       this.timePicker.Name = "timePicker";
       this.timePicker.ShowUpDown = true;
       this.timePicker.Size = new System.Drawing.Size(181, 27);
-      this.timePicker.TabIndex = 10;
+      this.timePicker.TabIndex = 7;
       // 
       // isArrivalTimeCheckBox
       // 
@@ -231,7 +233,7 @@
       this.isArrivalTimeCheckBox.Location = new System.Drawing.Point(362, 97);
       this.isArrivalTimeCheckBox.Name = "isArrivalTimeCheckBox";
       this.isArrivalTimeCheckBox.Size = new System.Drawing.Size(119, 24);
-      this.isArrivalTimeCheckBox.TabIndex = 11;
+      this.isArrivalTimeCheckBox.TabIndex = 8;
       this.isArrivalTimeCheckBox.Text = "Ankunftszeit?";
       this.isArrivalTimeCheckBox.UseVisualStyleBackColor = true;
       // 
@@ -240,16 +242,28 @@
       this.wechselbutton.Location = new System.Drawing.Point(358, 12);
       this.wechselbutton.Name = "wechselbutton";
       this.wechselbutton.Size = new System.Drawing.Size(187, 29);
-      this.wechselbutton.TabIndex = 12;
+      this.wechselbutton.TabIndex = 10;
       this.wechselbutton.Text = "Rückfahrt";
       this.wechselbutton.UseVisualStyleBackColor = true;
-      this.wechselbutton.Click += new System.EventHandler(this.wechselbutton_Click);
+      this.wechselbutton.Click += new System.EventHandler(this.Wechselbutton_Click);
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+      this.pictureBox1.Image = global::SwissTransportGUI.Properties.Resources._131125_scholtysik_news_sbb_new;
+      this.pictureBox1.Location = new System.Drawing.Point(551, 16);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(255, 98);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox1.TabIndex = 13;
+      this.pictureBox1.TabStop = false;
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(809, 450);
+      this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.wechselbutton);
       this.Controls.Add(this.isArrivalTimeCheckBox);
       this.Controls.Add(this.timePicker);
@@ -271,6 +285,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.stationBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.verbindungenDataGridView)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -298,5 +313,6 @@
     private DateTimePicker timePicker;
     private CheckBox isArrivalTimeCheckBox;
     private Button wechselbutton;
+    private PictureBox pictureBox1;
   }
 }
